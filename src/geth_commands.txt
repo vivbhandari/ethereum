@@ -1,0 +1,6 @@
+./geth --datadir ~/ethereum-private-network/chaindata --nodiscover --rpc --rpccorsdomain "*" --unlock 0 --mine 1
+
+./geth attach ipc:/Users/vivb/ethereum-private-network/chaindata/geth.ipc
+
+open -a /Applications/Mist.app --args --rpc /Users/vivb/ethereum-private-network/chaindata/geth.ipc
+
