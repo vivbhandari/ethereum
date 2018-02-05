@@ -22,8 +22,8 @@ public class TestWeb3 {
 
 	public static void main(String args[]) throws IOException,
 			InterruptedException, ExecutionException, CipherException {
-		Web3j web3j = Web3j.build(new HttpService()); // defaults to
-														// http://localhost:8545/
+		// defaults to http://localhost:8545/
+		Web3j web3j = Web3j.build(new HttpService());
 		Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
 		String clientVersion = web3ClientVersion.getWeb3ClientVersion();
 		System.out.println(clientVersion);
