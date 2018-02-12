@@ -6,6 +6,8 @@ contract MyContract {
     
     mapping(address => Permission) myAddressMapping;
     
+    event NumberIsIncreased(address indexed whoIncreased, uint256 indexed oldNumber, uint256 indexed newNumber);
+
     modifier onlyowner () {
         if(msg.sender == owner) {
             _;
@@ -13,6 +15,7 @@ contract MyContract {
             revert();
         }
     }
+
     struct Permission {
         bool isAllowed;
         uint maxTransferAmount;
@@ -26,6 +29,7 @@ contract MyContract {
     }
     
     function setMyVariable(uint myNewVariable) public onlyowner {
+        NumberIsIncreased(msg.sender, myVariable, myNewVariable);
         myVariable = myNewVariable;
     }
     
