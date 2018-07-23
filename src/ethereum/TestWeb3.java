@@ -30,7 +30,8 @@ public class TestWeb3 {
 	private static Web3j web3j = null;
 	// private static String previousContractAddress =
 	// "0xa846eabc6ea0cf2f9fc88cc04c1a1475a23bf386";
-	private static String previousContractAddress = "0x6F9388Ed8e7BC574bb00cd46061F5A793015798d";
+//	private static String previousContractAddress = "0x6F9388Ed8e7BC574bb00cd46061F5A793015798d";
+	private static String previousContractAddress = "0x3e36f150072134D6F859de7DefD6fd83AEd62967";
 	private static Credentials credentials = null;
 	private static BigInteger gasLimit = null;
 	private static MyContract currentContract = null;
@@ -57,6 +58,10 @@ public class TestWeb3 {
 
 		BigInteger wei = ethGetBalance.getBalance();
 		System.out.println(wei);
+
+//		String id = web3j.web3Sha3("NumberIsIncreased(address, uint256, uint256)")
+//				.;
+//		System.out.println("id=" + id);
 
 		init();
 		userOptions();
