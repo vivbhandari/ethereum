@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.2;
 
 contract MyContract {
     uint myVariable;
@@ -21,7 +21,7 @@ contract MyContract {
         uint maxTransferAmount;
     }
     
-    function MyContract() public payable {
+    constructor() public payable {
         myVariable = 5;
         owner = msg.sender;
         
@@ -29,19 +29,19 @@ contract MyContract {
     }
     
     function setMyVariable(uint myNewVariable) public onlyowner {
-        NumberIsIncreased(msg.sender, myVariable, myNewVariable);
+        emit NumberIsIncreased(msg.sender, myVariable, myNewVariable);
         myVariable = myNewVariable;
     }
     
-    function getMyVariable() constant public returns (uint) {
+    function getMyVariable() view public returns (uint) {
         return myVariable;
     }
     
-    function getMyContractBalance() constant public returns (uint) {
-        return this.balance;
+    function getMyContractBalance() view public returns (uint) {
+        return address(this).balance;
     }
     
-    function () payable public {
+    function () payable external {
         
     }
 }
