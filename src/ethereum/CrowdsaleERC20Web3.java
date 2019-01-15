@@ -137,21 +137,10 @@ public class CrowdsaleERC20Web3 extends BaseWeb3 {
 	protected void transfer3() throws InterruptedException, ExecutionException,
 			IOException, TransactionException {
 		lastTransactionReceipt = walletERC20
-				.sendEthers(currentContract.getContractAddress(),
-						new BigInteger("3"))
-				.sendAsync().get();
-		System.out.println(
-				"tx hash=" + lastTransactionReceipt.getTransactionHash());
-	}
-
-	protected void transfer4() throws InterruptedException, ExecutionException,
-			IOException, TransactionException {
-		lastTransactionReceipt = walletERC20
 				.transferEthers(currentContract.getContractAddress(),
-						new BigInteger("3"))
+						new BigInteger("3"), gasLimit)
 				.sendAsync().get();
-		System.out.println(
-				"tx hash=" + lastTransactionReceipt.getTransactionHash());
+		System.out.println("tx hash=" + lastTransactionReceipt);
 	}
 
 	protected void printLastTransactionDetails() {
@@ -178,8 +167,7 @@ public class CrowdsaleERC20Web3 extends BaseWeb3 {
 				+ ": crowdsale ether balance\n" + optionCounter++
 				+ ": my invested ether balance\n" + optionCounter++
 				+ ": transfer 2\n" + optionCounter++ + ": transfer 3\n"
-				+ optionCounter++ + ": transfer 4\n" + optionCounter++
-				+ ": last transaction details\n";
+				+ optionCounter++ + ": last transaction details\n";
 	}
 
 	protected BigInteger getCrowdsaleEtherBalance()
@@ -232,9 +220,6 @@ public class CrowdsaleERC20Web3 extends BaseWeb3 {
 			break;
 		case 17:
 			transfer3();
-			break;
-		case 18:
-			transfer4();
 			break;
 		case 19:
 			printLastTransactionDetails();

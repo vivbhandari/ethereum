@@ -159,7 +159,7 @@ public abstract class BaseWeb3 {
 		TransactionReceipt receipt = Transfer
 				.sendFunds(web3j, credentials, toAddress, amount, Unit.ETHER)
 				.sendAsync().get();
-		System.out.println("receipt=" + receipt.getTransactionHash());
+		System.out.println("receipt=" + receipt);
 	}
 
 	protected void sendEthers(String fromAddress, String toAddress,
@@ -176,7 +176,7 @@ public abstract class BaseWeb3 {
 				ManagedTransaction.GAS_PRICE, gasLimit, toAddress, amount);
 		EthSendTransaction receipt = web3j.ethSendTransaction(tx).sendAsync()
 				.get();
-		System.out.println("receipt=" + receipt.getTransactionHash());
+		System.out.println("receipt=" + receipt);
 	}
 
 	protected void userOptions() throws IOException, CipherException,
